@@ -11,7 +11,9 @@ function Signin() {
   const { username, password } = userData;
   const navigate = useNavigate();
   const dispatch = useDispatch();
-  const { user, fulfilled, rejected, message } = useSelector((state) => state.auth);
+  const { user, fulfilled, rejected, message } = useSelector(
+    (state) => state.auth
+  );
 
   useEffect(() => {
     if (rejected) {
@@ -21,19 +23,18 @@ function Signin() {
       navigate("/profile");
     }
     dispatch(reset());
-
   }, [user, fulfilled, rejected, message, navigate, dispatch]);
 
   const handleChange = (event) => {
     setUserData({ ...userData, [event.target.name]: event.target.value });
   };
-  
+
   const handleSubmit = (event) => {
     event.preventDefault();
     const userData = {
       username,
       password,
-    }
+    };
     dispatch(signin(userData));
   };
 
@@ -68,4 +69,4 @@ function Signin() {
   );
 }
 
-export default Signin
+export default Signin;

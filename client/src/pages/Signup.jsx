@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import {useSelector, useDispatch} from 'react-redux';
+import { useSelector, useDispatch } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import { signup, reset } from "../features/auth/authSlice";
 
@@ -11,7 +11,9 @@ function Signup() {
   const { username, password } = userData;
   const navigate = useNavigate();
   const dispatch = useDispatch();
-  const { user, fulfilled, rejected, message } = useSelector((state) => state.auth);
+  const { user, fulfilled, rejected, message } = useSelector(
+    (state) => state.auth
+  );
 
   useEffect(() => {
     if (rejected) {
@@ -32,7 +34,7 @@ function Signup() {
     const userData = {
       username,
       password,
-    }
+    };
     dispatch(signup(userData));
   };
 

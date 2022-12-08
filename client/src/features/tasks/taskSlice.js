@@ -89,7 +89,9 @@ export const taskSlice = createSlice({
         state.pending = true;
       })
       .addCase(deleteTask.fulfilled, (state, action) => {
-        state.tasks = state.tasks.filter((task) => task._id !== action.payload);
+        state.tasks = state.tasks.filter(
+          (task) => task._id !== action.payload.id
+        );
         state.pending = false;
         state.fulfilled = true;
       })

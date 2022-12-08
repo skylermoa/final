@@ -14,7 +14,7 @@ function TaskForm() {
     event.preventDefault();
     dispatch(createTask({ text }));
     setText("");
-  }
+  };
 
   return (
     <form onSubmit={handleSubmit}>
